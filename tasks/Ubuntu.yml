@@ -26,7 +26,7 @@
       - 3ware-status
       - tw-cli
       - 3dm2
-  when: {{ hwraid_target == "3Ware" }}
+  when: "{{ hwraid_target == '3Ware' }}"
 
 - name: install packages for Adaptec AACRaid
   apt: name={{ item }}
@@ -39,58 +39,58 @@
       - hrconf
       - adaptec-universal-storage-snmpd
       - adaptec-universal-storage-mib
-  when: {{ hwraid_target == "Adaptec" }}
+  when: "{{ hwraid_target == 'Adaptec' }}"
 
 - name: install packages for HP/Compaq SmartArray
   apt: name={{ item }}
   with_items:
       - cciss-vol-status
       - hpacucli
-  when: {{ hwraid_target == "SmartArray" }}
+  when: "{{ hwraid_target == 'SmartArray' }}"
 
 - name: install packages for LSI MegaRAID / MegaRAID SAS
   apt: name={{ item }}
   with_items:
       - megaraid-status
       - megactl
-  when: {{ hwraid_target in ["MegaRAID","MegaRAID_SAS","MegaRAID_Dell"] }}
+  when: "{{ hwraid_target in ['MegaRAID','MegaRAID_SAS','MegaRAID_Dell'] }}"
   
 - name: install packages for LSI MegaRAID
   apt: name={{ item }}
   with_items:
       - megamgr
-  when: {{ hwraid_target == "MegaRAID" }}
+  when: "{{ hwraid_target == 'MegaRAID' }}"
   
 - name: install packages for LSI MegaRAID (Dell cards only)
   apt: name={{ item }}
   with_items:
       - dellmgr
-  when: {{ hwraid_target == "MegaRAID_Dell" }}
+  when: "{{ hwraid_target == 'MegaRAID_Dell' }}"
 
 - name: install packages for LSI MegaRAID SAS
   apt: name={{ item }}
   with_items:
       - megaclisas-status
       - megacli
-  when: {{ hwraid_target == "MegaRAID_SAS" }}
+  when: "{{ hwraid_target == 'MegaRAID_SAS' }}"
   
 - name: install packages for LSI MegaIDE
   apt: name={{ item }}
   with_items:
       - megaide-status
       - megaide-spyd
-  when: {{ hwraid_target == "MegaIDE" }}
+  when: "{{ hwraid_target == 'MegaIDE' }}"
   
 - name: install packages for LSI FusionMPT
   apt: name={{ item }}
   with_items:
       - mpt-status
       - lsiutil
-  when: {{ hwraid_target == "FusionMPT" }}
+  when: "{{ hwraid_target == 'FusionMPT' }}"
 
 - name: install packages for LSI FusionMPT SAS2
   apt: name={{ item }}
   with_items:
       - sas2ircu
       - sas2ircu-status
-  when: {{ hwraid_target == "FusionMPT_SAS2" }}
+  when: "{{ hwraid_target == 'FusionMPT_SAS2' }}"
